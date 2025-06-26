@@ -1,0 +1,29 @@
+{
+  "microbit": {
+    "cases": [
+      {
+        "id": "case_1",
+        "title": "Yellow Light Not Glowing / Drive Not Visible",
+        "symptoms": [
+          "Yellow LED on Micro:bit does not blink",
+          "MICROBIT drive not detected on PC/Mac"
+        ],
+        "causes": [
+          "USB cable is power-only (no data transfer)",
+          "Faulty USB port or cable",
+          "Poor connection or faulty Micro:bit"
+        ],
+        "solutions": [
+          "Use a known working data cable",
+          "Try a different USB port or laptop",
+          "Press reset button on the Micro:bit",
+          "Use a paperclip to short GND and RST (in extreme cases)",
+          "if it still doesn't work, write a mail to debugging Team"
+        ],
+        "resources": [
+          "https://docs.google.com/document/d/1oRFlY9XqV-OSfjlaomQ-o56yuyp3Z0yLUfKQGyGt1YU/edit"
+        ]
+      }
+    ]
+  }
+}
