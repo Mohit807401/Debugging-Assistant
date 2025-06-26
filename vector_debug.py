@@ -18,13 +18,22 @@ def ask_debug_agent(query):
         docs = retriever.get_relevant_documents(query)
         context = "\n---\n".join([doc.page_content for doc in docs[:2]])
 
-        prompt = (
-            "You are a Microbit debugging expert.\n\n"
-            "Here are known cases and issues:\n"
-            f"{context}\n\n"
-            f"User's Question: {query}\n\n"
-            "Answer in a helpful and clear way:"
-        )
+        prompt = f"""You are a Microbit debugging assistant. 
+
+Only extract SOLUTIONS from the given context and format them as bullet points.
+Do NOT include greetings, explanations, or anything else.
+
+✅ Each point should start with a UPPERCASE action heading, followed by a short description.
+✅ Be crisp and technical.
+
+Context:
+{context}
+
+Issue:
+{query}
+
+Answer:"""
+
 
         headers = {
             "Authorization": f"Bearer {TOGETHER_API_KEY}",
