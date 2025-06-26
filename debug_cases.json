@@ -1,5 +1,12 @@
 {
   "microbit": {
+    "guidelines": [
+      "Always start with visual inspection (LED indicators, cable connection, PC detection).",
+      "Cross-check on another laptop if the issue persists.",
+      "Confirm the board is powered using a proper micro-USB cable (not a power-only cable).",
+      "Maintain the latest version of firmware and use updated MakeCode or Python editors.",
+      "Use official USB ports (avoid USB hubs when testing faulty boards)."
+    ],
     "cases": [
       {
         "id": "case_1",
@@ -18,10 +25,157 @@
           "Try a different USB port or laptop",
           "Press reset button on the Micro:bit",
           "Use a paperclip to short GND and RST (in extreme cases)",
-          "if it still doesn't work, write a mail to debugging Team"
+          "If it still doesn't work, write a mail to debugging team"
         ],
         "resources": [
-          "https://docs.google.com/document/d/1oRFlY9XqV-OSfjlaomQ-o56yuyp3Z0yLUfKQGyGt1YU/edit"
+          "https://docs.google.com/document/d/1oRFlY9XqV-OSfjlaomQ-o56yuyp3Z0yLUfKQGyGt1YU/edit?tab=t.25k1xmnbztte"
+        ]
+      },
+      {
+        "id": "case_2",
+        "title": "Code Uploads But No Output Displayed",
+        "symptoms": [
+          "Hex file uploads successfully",
+          "No display on Micro:bit LEDs",
+          "Output is not correct",
+          "Desired output not displayed"
+        ],
+        "causes": [
+          "Bug in code (e.g., infinite loops, missing display calls)",
+          "Logic error – condition never true"
+        ],
+        "solutions": [
+          "Add a basic 'Hello!' message to the start",
+          "Simplify and test code in small blocks",
+          "Re-upload minimal working code",
+          "Click on the save button to download the .hex file. Go to file explorer/finder → downloads and copy-paste it to the MICROBIT drive",
+          "Try with both the cables",
+          "Try a different laptop. If it still doesn't work, write a mail to debugging team"
+        ],
+        "resources": [
+          "https://docs.google.com/document/d/1oRFlY9XqV-OSfjlaomQ-o56yuyp3Z0yLUfKQGyGt1YU/edit?tab=t.25k1xmnbztte"
+        ]
+      },
+      {
+        "id": "case_3",
+        "title": "Heart Icon Only Displayed (Tier 1 Specific)",
+        "symptoms": [
+          "Only heart icon appears even after uploading new code"
+        ],
+        "causes": [
+          "Micro:bit is stuck in demo mode from factory firmware"
+        ],
+        "solutions": [
+          "Upload a new hex file using MakeCode",
+          "Hard reset the board and upload again"
+        ],
+        "resources": [
+          "https://makecode.microbit.org"
+        ]
+      },
+      {
+        "id": "case_4",
+        "title": "WebUSB Error 503/504",
+        "symptoms": [
+          "Error shown when trying to connect via WebUSB on MakeCode"
+        ],
+        "causes": [
+          "Browser caching or port issue"
+        ],
+        "solutions": [
+          "Close all tabs using Micro:bit",
+          "Clear browser cache",
+          "Restart browser and reconnect",
+          "Try on a different laptop"
+        ],
+        "resources": [
+          "https://microbit.org/get-started/user-guide/firmware/"
+        ]
+      },
+      {
+        "id": "case_5",
+        "title": "WebUSB Already in Use in Another Tab",
+        "symptoms": [
+          "MakeCode shows error that device is connected in another tab"
+        ],
+        "causes": [
+          "Multiple tabs or windows using WebUSB"
+        ],
+        "solutions": [
+          "Close other tabs/windows using WebUSB",
+          "Refresh the MakeCode tab",
+          "Disconnect and reconnect Micro:bit",
+          "Uninstall WEBUSB and CMSIS-DAP drivers from Device Manager (Windows)",
+          "Reconnect Micro:bit to reinstall drivers"
+        ],
+        "resources": [
+          "https://makecode.microbit.org"
+        ]
+      },
+      {
+        "id": "case_6",
+        "title": "OS Error During I2C Communication",
+        "symptoms": [
+          "MicroPython throws OS Error during sensor communication"
+        ],
+        "causes": [
+          "Sensor is not connected properly",
+          "Wrong I2C address used in code"
+        ],
+        "solutions": [
+          "Check sensor wiring (SDA/SCL)",
+          "Verify correct address using datasheet or scanner code",
+          "Add a try/except block in MicroPython to handle error"
+        ],
+        "resources": [
+          "https://python.microbit.org/v/3"
+        ]
+      },
+      {
+        "id": "case_7",
+        "title": "Micro:bit Not Visible on File Explorer/Finder",
+        "symptoms": [
+          "Micro:bit not detected on PC/Mac"
+        ],
+        "causes": [
+          "Cable/port issue",
+          "Board not entering bootloader mode"
+        ],
+        "solutions": [
+          "Try a different USB cable and port",
+          "Hold reset button while connecting USB to enter bootloader mode"
+        ]
+      },
+      {
+        "id": "case_8",
+        "title": "Yellow and Red Lights Both ON",
+        "symptoms": [
+          "Both status LEDs are continuously ON"
+        ],
+        "causes": [
+          "Board might be locked or bricked"
+        ],
+        "solutions": [
+          "Press and hold reset for 10 seconds",
+          "Reflash firmware",
+          "If unresolved, consider board replacement"
+        ]
+      },
+      {
+        "id": "case_9",
+        "title": "Incorrect Wiring by Students",
+        "symptoms": [
+          "Code logic fails",
+          "Unexpected behavior from connected components"
+        ],
+        "causes": [
+          "Wrong GPIO usage",
+          "Misconnected wires"
+        ],
+        "solutions": [
+          "Double-check pin numbers in MakeCode/MicroPython",
+          "Compare with circuit documentation",
+          "Use multimeter to test continuity"
         ]
       }
     ]
