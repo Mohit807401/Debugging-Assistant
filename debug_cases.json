@@ -1,138 +1,153 @@
 {
+  "general_guidelines": [
+    "Always start with visual inspection (LED indicators, cable connection, PC detection)",
+    "Never rush customers - allow ample time for understanding instructions",
+    "If parents are available, ask them to perform debugging while children observe",
+    "Keep hardware components handy to help identify parts visually",
+    "Notify QnA WhatsApp group immediately for hardware issues during online sessions"
+  ],
   "microbit": {
-    "guidelines": [
-      "Always start with visual inspection (LED indicators, cable connection, PC detection).",
-      "Cross-check on another laptop if the issue persists.",
-      "Confirm the board is powered using a proper micro-USB cable (not a power-only cable).",
-      "Maintain the latest version of firmware and use updated MakeCode or Python editors.",
-      "Use official USB ports (avoid USB hubs when testing faulty boards)."
+    "initial_setup": [
+      "Always start debugging with default test code",
+      "Disconnect micro:bit from breakout boards (MLB basic/MLB+) before debugging",
+      "Check LED indicators, cable connections, and PC detection status"
     ],
     "cases": [
       {
-        "id": "case_1",
-        "title": "Yellow Light Not Glowing / Drive Not Visible",
+        "id": "mb_case_1",
+        "title": "Yellow LED Not Glowing / Drive Not Visible",
         "symptoms": [
-          "Yellow LED on Micro:bit does not blink",
-          "MICROBIT drive not detected on PC/Mac"
+          "Yellow LED doesn't blink when connected",
+          "MICROBIT drive missing from File Explorer/Finder"
         ],
         "causes": [
-          "USB cable is power-only (no data transfer)",
-          "Faulty USB port or cable",
-          "Poor connection or faulty Micro:bit"
+          "Power-only USB cable (no data transfer)",
+          "Faulty USB port",
+          "Poor connection",
+          "Defective board"
         ],
         "solutions": [
-          "Use a known working data cable",
-          "Try a different USB port or laptop",
-          "Press reset button on the Micro:bit",
-          "Use a paperclip to short GND and RST (in extreme cases)",
-          "If it still doesn't work, write a mail to debugging team"
+          "TEST CABLE: Use known working data cable (not power-only)",
+          "TRY DIFFERENT PORT: Test different USB port or computer",
+          "PRESS RESET: Press reset button on micro:bit",
+          "EXTREME MEASURE: Use paperclip to short GND and RST pins",
+          "REPLACEMENT: If unresolved, replacement micro:bit within 4-5 business days"
         ],
         "resources": [
           "https://docs.google.com/document/d/1oRFlY9XqV-OSfjlaomQ-o56yuyp3Z0yLUfKQGyGt1YU/edit?tab=t.25k1xmnbztte"
         ]
       },
       {
-        "id": "case_2",
-        "title": "Code Uploads But No Output Displayed",
+        "id": "mb_case_2",
+        "title": "Code Uploads Successfully, No Output Display",
         "symptoms": [
-          "Hex file uploads successfully",
-          "No display on Micro:bit LEDs",
+          "Hex file transfers without error",
+          "No LED display activity",
           "Output is not correct",
           "Desired output not displayed"
         ],
         "causes": [
-          "Bug in code (e.g., infinite loops, missing display calls)",
-          "Logic error – condition never true"
+          "Code bugs (infinite loops, missing display calls)",
+          "Logic errors - condition never true"
         ],
         "solutions": [
-          "Add a basic 'Hello!' message to the start",
-          "Simplify and test code in small blocks",
-          "Re-upload minimal working code",
-          "Click on the save button to download the .hex file. Go to file explorer/finder → downloads and copy-paste it to the MICROBIT drive",
-          "Try with both the cables",
-          "Try a different laptop. If it still doesn't work, write a mail to debugging team"
+          "MANUAL TRANSFER: Click Save to download .hex file, navigate to Downloads, copy/paste to MICROBIT drive",
+          "TEST CABLES: Try alternative cable from kit (USB-A black or USB-C white)",
+          "DIFFERENT LAPTOP: Test on different computer if available",
+          "SIMPLIFY CODE: Add basic Hello message at start, test blocks individually",
+          "UPLOAD TEST CODE: Upload minimal working code to verify hardware",
+          "REPLACEMENT: If no output after all steps, replacement within 4-5 business days"
         ],
         "resources": [
           "https://docs.google.com/document/d/1oRFlY9XqV-OSfjlaomQ-o56yuyp3Z0yLUfKQGyGt1YU/edit?tab=t.25k1xmnbztte"
         ]
       },
       {
-        "id": "case_3",
-        "title": "Heart Icon Only Displayed (Tier 1 Specific)",
+        "id": "mb_case_3",
+        "title": "Heart Icon Only (Factory Demo Mode)",
         "symptoms": [
-          "Only heart icon appears even after uploading new code"
+          "Only heart icon displays after uploading new code",
+          "Hello text doesn't appear in loop"
         ],
         "causes": [
-          "Micro:bit is stuck in demo mode from factory firmware"
+          "Board stuck in factory demo mode"
         ],
         "solutions": [
-          "Upload a new hex file using MakeCode",
-          "Hard reset the board and upload again"
+          "UPLOAD NEW CODE: Upload new hex file via MakeCode",
+          "HARD RESET: Hard reset board and re-upload",
+          "FOLLOW CASE 2: If issue persists, follow Case 2 solution steps",
+          "NOTE: Currently under development for permanent fix"
         ],
         "resources": [
           "https://makecode.microbit.org"
         ]
       },
       {
-        "id": "case_4",
+        "id": "mb_case_4",
         "title": "WebUSB Error 503/504",
         "symptoms": [
-          "Error shown when trying to connect via WebUSB on MakeCode"
+          "Error when connecting via WebUSB on MakeCode",
+          "Persists across different cables and micro:bits"
         ],
         "causes": [
           "Browser caching or port issue"
         ],
         "solutions": [
-          "Close all tabs using Micro:bit",
-          "Clear browser cache",
-          "Restart browser and reconnect",
-          "Try on a different laptop"
+          "BROWSER RESET: Close all micro:bit tabs, clear browser cache",
+          "RESTART BROWSER: Restart browser and reconnect",
+          "DIFFERENT LAPTOP: Test on different laptop",
+          "MANUAL TRANSFER: Use manual .hex file transfer method as fallback"
         ],
         "resources": [
           "https://microbit.org/get-started/user-guide/firmware/"
         ]
       },
       {
-        "id": "case_5",
-        "title": "WebUSB Already in Use in Another Tab",
+        "id": "mb_case_5",
+        "title": "WebUSB Already in Use Error",
         "symptoms": [
-          "MakeCode shows error that device is connected in another tab"
+          "Device connected in another tab error message"
         ],
         "causes": [
           "Multiple tabs or windows using WebUSB"
         ],
         "solutions": [
-          "Close other tabs/windows using WebUSB",
-          "Refresh the MakeCode tab",
-          "Disconnect and reconnect Micro:bit",
-          "Uninstall WEBUSB and CMSIS-DAP drivers from Device Manager (Windows)",
-          "Reconnect Micro:bit to reinstall drivers"
+          "CLOSE TABS: Close other WebUSB tabs/windows",
+          "REFRESH: Refresh MakeCode tab",
+          "RECONNECT: Disconnect and reconnect micro:bit",
+          "DRIVER REFRESH (Windows): Ensure both status lights are ON, open Device Manager, uninstall WebUSB and CMSIS DAP drivers, unplug micro:bit from both ends, reconnect to auto-reinstall",
+          "MANUAL TRANSFER: Use manual .hex file transfer as fallback"
         ],
         "resources": [
           "https://makecode.microbit.org"
         ]
       },
       {
-        "id": "case_6",
+        "id": "mb_case_6",
         "title": "OS Error During I2C Communication",
         "symptoms": [
-          "MicroPython throws OS Error during sensor communication"
+          "MicroPython throws OS Error with sensors",
+          "Occurs with LCD, Moonrover Kit connections"
         ],
         "causes": [
-          "Sensor is not connected properly",
-          "Wrong I2C address used in code"
+          "Improper sensor wiring",
+          "Incorrect I2C address",
+          "Disconnected devices"
         ],
         "solutions": [
-          "Check sensor wiring (SDA/SCL)",
-          "Verify correct address using datasheet or scanner code",
-          "Add a try/except block in MicroPython to handle error"
+          "CHECK WIRING: Verify all wiring especially SDA/SCL connections",
+          "VERIFY CONNECTIONS: Ensure micro:bit connected to breakout board, verify device-specific connections",
+          "CHECK I2C ADDRESS: Confirm correct I2C address via datasheet",
+          "ADD ERROR HANDLING: Add try/except blocks in MicroPython",
+          "USE SCANNER: Use I2C scanner code to detect devices",
+          "PHYSICAL RESET: Redo all connections, unplug and replug micro:bit"
         ],
         "resources": [
           "https://python.microbit.org/v/3"
         ]
       },
       {
-        "id": "case_7",
+        "id": "mb_case_7",
         "title": "Micro:bit Not Visible on File Explorer/Finder",
         "symptoms": [
           "Micro:bit not detected on PC/Mac"
@@ -142,12 +157,12 @@
           "Board not entering bootloader mode"
         ],
         "solutions": [
-          "Try a different USB cable and port",
-          "Hold reset button while connecting USB to enter bootloader mode"
+          "TRY DIFFERENT CABLE: Use different USB cable and port",
+          "BOOTLOADER MODE: Hold reset button while connecting USB to enter bootloader mode"
         ]
       },
       {
-        "id": "case_8",
+        "id": "mb_case_8",
         "title": "Yellow and Red Lights Both ON",
         "symptoms": [
           "Both status LEDs are continuously ON"
@@ -156,13 +171,13 @@
           "Board might be locked or bricked"
         ],
         "solutions": [
-          "Press and hold reset for 10 seconds",
-          "Reflash firmware",
-          "If unresolved, consider board replacement"
+          "LONG RESET: Press and hold reset for 10 seconds",
+          "REFLASH FIRMWARE: Reflash firmware using maintenance mode",
+          "REPLACEMENT: If unresolved, consider board replacement"
         ]
       },
       {
-        "id": "case_9",
+        "id": "mb_case_9",
         "title": "Incorrect Wiring by Students",
         "symptoms": [
           "Code logic fails",
@@ -173,11 +188,678 @@
           "Misconnected wires"
         ],
         "solutions": [
-          "Double-check pin numbers in MakeCode/MicroPython",
-          "Compare with circuit documentation",
-          "Use multimeter to test continuity"
+          "CHECK PIN NUMBERS: Double-check pin numbers in MakeCode/MicroPython",
+          "COMPARE DOCUMENTATION: Compare with circuit documentation",
+          "TEST CONTINUITY: Use multimeter to test continuity"
+        ]
+      },
+      {
+        "id": "mb_case_10",
+        "title": "Firmware Update Issues",
+        "symptoms": [
+          "Need to update firmware version"
+        ],
+        "causes": [
+          "Outdated firmware"
+        ],
+        "solutions": [
+          "CHECK VERSION: Read DETAILS.TXT on MICROBIT drive",
+          "UPDATE PROCESS: Disconnect USB and battery, hold reset button while connecting USB, MAINTENANCE drive appears",
+          "DOWNLOAD FIRMWARE: Download appropriate .hex from microbit.org/get-started/user-guide/firmware/",
+          "INSTALL: Drag .hex to MAINTENANCE drive, wait for yellow LED to stop flashing"
+        ],
+        "resources": [
+          "https://microbit.org/get-started/user-guide/firmware/",
+          "https://drive.google.com/file/d/1MDf5oNpClpNUppN-Spkn_Rb2puuiKCR9/view?usp=sharing"
         ]
       }
+    ]
+  },
+  "moonrover": {
+    "assembly_guidelines": [
+      "Never twist or force wheels - align D-shaped shaft properly",
+      "Remove ALL plastic packaging from battery before installation",
+      "DO NOT move or tilt ultrasonic sensor or IR receiver - pre-soldered connections",
+      "During rivet assembly, do NOT hold down sensors while placing rivets"
+    ],
+    "cases": [
+      {
+        "id": "mr_case_1",
+        "title": "Wheel Attachment Problems",
+        "symptoms": [
+          "Wheels won't attach properly",
+          "Slipping or forcing required"
+        ],
+        "causes": [
+          "Improper alignment of D-shaped shaft",
+          "Incorrect insertion technique"
+        ],
+        "solutions": [
+          "PROPER ALIGNMENT: Motor shaft is D-shaped with flat side - align flat side with flat slot in wheel hub",
+          "GENTLE PRESSURE: Never twist or force - press gently but firmly",
+          "PARENTAL HELP: Recommended for younger students due to required force",
+          "VERIFY FLUSH: Wheel should sit flush against motor housing when properly installed"
+        ],
+        "resources": [
+          "https://drive.google.com/file/d/1iQ0bBl1tgzuBMepaZ-Z0BFsAu9SaB91B/view?usp=sharing"
+        ]
+      },
+      {
+        "id": "mr_case_2",
+        "title": "Battery Installation Issues",
+        "symptoms": [
+          "Power problems",
+          "Loose connections",
+          "Incorrect orientation"
+        ],
+        "causes": [
+          "Plastic packaging not removed",
+          "Incorrect polarity",
+          "Low battery charge"
+        ],
+        "solutions": [
+          "REMOVE PACKAGING: Remove ALL plastic packaging around battery",
+          "CHECK CHARGE: Check battery charge level before installation",
+          "CORRECT POLARITY: Match + and - symbols on battery with holder markings",
+          "SECURE INSERT: Insert securely but gently to avoid terminal damage",
+          "VERIFY POWER: Red LED near switch should light when ON"
+        ],
+        "resources": [
+          "https://drive.google.com/file/d/1xKf__nkeKeRVUlp4WN_Cof9TnbGZZI4e/view?usp=sharing"
+        ]
+      },
+      {
+        "id": "mr_case_3",
+        "title": "Battery Charging Problems",
+        "symptoms": [
+          "No charging indicator",
+          "Battery not holding charge"
+        ],
+        "causes": [
+          "Battery not fully charged before testing",
+          "Faulty charging connection"
+        ],
+        "solutions": [
+          "CHECK INDICATORS: Red LED means charging in progress, Green LED means fully charged",
+          "PRE-TEST CHARGING: Always ensure battery fully charged (Green LED ON) before testing",
+          "VERIFY SWITCH: Confirm ON position and red LED glowing",
+          "CHECK TERMINALS: Check battery terminal connections if no LED response"
+        ],
+        "resources": [
+          "https://drive.google.com/file/d/1Bpi8sgg7poxQrusJycS-bkWebxnKDMID/view?usp=sharing"
+        ]
+      },
+      {
+        "id": "mr_case_4",
+        "title": "OS Error During I2C Communication (Upload)",
+        "symptoms": [
+          "OSError appears when uploading code with I2C components (NeoPixels, sensors)"
+        ],
+        "causes": [
+          "Code tries to communicate with I2C devices not physically connected"
+        ],
+        "solutions": [
+          "EXPECTED BEHAVIOR: This error is NORMAL when micro:bit disconnected from Moonrover",
+          "PROPER UPLOAD: Disconnect micro:bit from Moonrover BEFORE uploading",
+          "CONNECT TO PC: Connect micro:bit to PC via USB and upload .hex file",
+          "SAFE EJECT: Safely eject micro:bit",
+          "REINSERT: Reinsert into Moonrover's edge connector",
+          "TEST CONNECTED: Always test I2C code with micro:bit fully connected to Moonrover",
+          "RESTART: Insert micro:bit back into Moonrover and restart - code will work normally"
+        ]
+      },
+      {
+        "id": "mr_case_5",
+        "title": "Moonrover Not Moving",
+        "symptoms": [
+          "No movement when code uploaded",
+          "Motors not responding"
+        ],
+        "causes": [
+          "Battery not charged",
+          "Power switch off",
+          "Code errors",
+          "Poor connections"
+        ],
+        "solutions": [
+          "CHECK BATTERY: Verify battery charge (Green LED should be ON before use)",
+          "VERIFY POWER: Confirm power switch is ON (red LED glowing)",
+          "TEST WITH USB: Test while micro-USB remains connected if battery suspected",
+          "SIMPLE CODE: Upload simple motor control like move_forward(200)",
+          "VERIFY PINS: Check correct pin assignments in code",
+          "TEST MOTORS: Test individual motor functions",
+          "PHYSICAL CHECK: Verify wheel attachment, wire connections, micro:bit properly seated"
+        ]
+      },
+      {
+        "id": "mr_case_6",
+        "title": "One Wheel Not Working",
+        "symptoms": [
+          "Only one motor responding",
+          "Uneven movement"
+        ],
+        "causes": [
+          "Motor wiring issue",
+          "Code pin configuration error",
+          "Wheel slippage"
+        ],
+        "solutions": [
+          "TEST INDIVIDUALLY: Test each motor with separate commands",
+          "CHECK WIRING: Verify motor connections to driver IC",
+          "VERIFY PINS: Confirm correct GPIO pins in code",
+          "INSPECT WHEEL: Check for wheel slippage or obstruction"
+        ]
+      },
+      {
+        "id": "mr_case_7",
+        "title": "Reversed Direction",
+        "symptoms": [
+          "Moonrover moves opposite to commanded direction"
+        ],
+        "causes": [
+          "Motor wiring polarity reversed",
+          "Code direction logic incorrect"
+        ],
+        "solutions": [
+          "CHECK CODE: Review motor direction commands in software",
+          "VERIFY WIRING: Check motor wire connections (may need swapping)",
+          "CALIBRATE: Adjust direction logic in code as needed"
+        ]
+      },
+      {
+        "id": "mr_case_8",
+        "title": "Ultrasonic Sensor Problems",
+        "symptoms": [
+          "No distance readings",
+          "Incorrect values",
+          "Sensor not responding"
+        ],
+        "causes": [
+          "Sensor moved or tilted",
+          "Wiring issues",
+          "Obstructions"
+        ],
+        "solutions": [
+          "PHYSICAL CHECK: Ensure sensor hasn't been moved or tilted, verify trigger/echo connections",
+          "CHECK OBSTRUCTIONS: Look for obstructions in sensor path",
+          "DEBUG CODE: Use display.scroll(distance) to show live readings",
+          "TEST RANGE: Verify detection range (optimal: 2cm - 400cm)",
+          "ADD PRINTS: Add debug prints like print(distance)",
+          "TEST DISTANCES: Place object at known distances and verify readings",
+          "CHECK ALIGNMENT: Verify sensor alignment (should face forward)"
+        ]
+      },
+      {
+        "id": "mr_case_9",
+        "title": "IR Sensor Issues",
+        "symptoms": [
+          "Always high/low readings",
+          "No line detection",
+          "Inconsistent behavior"
+        ],
+        "causes": [
+          "Wrong surface type",
+          "Sensor height incorrect",
+          "Wiring or code issues"
+        ],
+        "solutions": [
+          "SURFACE TEST: Test on different surfaces (white/black contrast needed)",
+          "CHECK REFLECTION: Verify surface reflection properties",
+          "ADJUST HEIGHT: Ensure proper sensor height above surface",
+          "DEBUG VALUES: Display live sensor values with display.scroll(ir_value)",
+          "TEST THRESHOLD: Test threshold values for line detection",
+          "VERIFY PINS: Confirm pin assignments",
+          "PHYSICAL CHECK: Check sensor positioning, alignment, and wiring"
+        ]
+      },
+      {
+        "id": "mr_case_10",
+        "title": "IR Remote Not Responding",
+        "symptoms": [
+          "Remote commands not received",
+          "Intermittent response"
+        ],
+        "causes": [
+          "Battery plastic not removed",
+          "Distance too far",
+          "Light interference",
+          "Code issues"
+        ],
+        "solutions": [
+          "BATTERY PREP: Remove transparent plastic strip from under coin cell battery (DO NOT remove battery unless necessary)",
+          "CHECK DISTANCE: Aim directly at IR receiver, maintain distance within 1 meter",
+          "AVOID LIGHT: Avoid bright light or direct sunlight",
+          "SIGNAL CHECK: Check line of sight to IR receiver, move closer if needed",
+          "CODE TEST: Test IR receiver with simple detection code",
+          "ADD FEEDBACK: Add debug display like display.show('R') when signal received",
+          "VERIFY CODES: Confirm correct IR codes in program"
+        ],
+        "resources": [
+          "https://drive.google.com/file/d/1xKf__nkeKeRVUlp4WN_Cof9TnbGZZI4e/view?usp=sharing"
+        ]
+      },
+      {
+        "id": "mr_case_11",
+        "title": "Radio Communication Issues",
+        "symptoms": [
+          "No response from rover",
+          "Controller not connecting"
+        ],
+        "causes": [
+          "Radio not configured properly",
+          "Signal interference",
+          "Mismatched radio groups"
+        ],
+        "solutions": [
+          "RADIO SETUP: Ensure radio.on() in both controller and rover code",
+          "VERIFY GROUP: Check matching group like radio.config(group=23)",
+          "ENABLE RADIO: Confirm both devices have radio enabled",
+          "AVOID INTERFERENCE: Move away from other radio devices",
+          "TRY DIFFERENT GROUP: Try different radio groups if interference suspected",
+          "ADD FEEDBACK: Add confirmation displays like display.show('F') when sending/receiving",
+          "TEST SIMPLE: Test with simple send/receive code first",
+          "MATCH COMMANDS: Verify command strings match exactly"
+        ]
+      }
+    ]
+  },
+  "arduino": {
+    "general_guidelines": [
+      "Always disconnect power before checking connections",
+      "Verify board selection and COM port in Arduino IDE",
+      "Test with simple example code first (like Blink)",
+      "Check for sufficient power supply especially with motors/servos"
+    ],
+    "cases": [
+      {
+        "id": "ard_case_1",
+        "title": "Bootloader Problems",
+        "symptoms": [
+          "Upload fails repeatedly",
+          "Timing issues during upload"
+        ],
+        "causes": [
+          "Corrupted bootloader",
+          "Timing issues",
+          "Interference from connected circuits"
+        ],
+        "solutions": [
+          "TIMING RESET: Press and hold reset button, click Upload in Arduino IDE, release reset when Uploading appears",
+          "DISCONNECT PERIPHERALS: Remove all wires from pins 0 and 1 (RX/TX)",
+          "BOOTLOADER REINSTALL: Tools → Burn Bootloader (requires another Arduino or ISP)",
+          "CHECK POWER: Ensure stable 5V power supply available"
+        ]
+      },
+      {
+        "id": "ard_case_2",
+        "title": "Board Not Detected / Wrong COM Port",
+        "symptoms": [
+          "Board not appearing in IDE",
+          "Wrong port selected",
+          "Device not recognized"
+        ],
+        "causes": [
+          "Wrong board/port selected",
+          "Driver conflict",
+          "USB hub issues"
+        ],
+        "solutions": [
+          "MANUAL PORT: Tools → Port → Select correct COM port",
+          "WINDOWS CHECK: Check Device Manager for Arduino Uno (COM#)",
+          "MAC CHECK: Look for /dev/cu.usbmodem or /dev/cu.usbserial",
+          "PORT IDENTIFICATION: Disconnect Arduino and check available ports, reconnect to see which port appears",
+          "RESTART IDE: Close Arduino IDE completely and reopen",
+          "DIRECT CONNECTION: Avoid USB hubs, connect directly to computer",
+          "DRIVER REINSTALL: Uninstall device in Device Manager, reconnect to reinstall"
+        ]
+      },
+      {
+        "id": "ard_case_3",
+        "title": "Driver Issues",
+        "symptoms": [
+          "Unknown device in Device Manager",
+          "Driver installation failed"
+        ],
+        "causes": [
+          "Missing/corrupted drivers",
+          "Windows Update conflicts",
+          "Clone board drivers not installed"
+        ],
+        "solutions": [
+          "AUTOMATIC UPDATE: Right-click Unknown Device → Update Driver → Search automatically",
+          "MANUAL INSTALL: Install latest Arduino IDE (includes drivers), in Device Manager point to Arduino IDE installation folder",
+          "WINDOWS SPECIFIC: Check Windows Updates, try USB 2.0 port instead of USB 3.0",
+          "CLONE BOARDS: Install CH340 drivers if using clone boards"
+        ]
+      },
+      {
+        "id": "ard_case_4",
+        "title": "Upload / Connection Errors",
+        "symptoms": [
+          "avrdude error messages",
+          "Upload fails inconsistently",
+          "Connection drops"
+        ],
+        "causes": [
+          "Faulty USB cable",
+          "Loose connections",
+          "Low power",
+          "Interference"
+        ],
+        "solutions": [
+          "CABLE TEST: Try known working USB cable (must be data capable), inspect for damage, test with another device",
+          "CONNECTION CHECK: Ensure USB firmly connected at both ends, clean USB ports, check Arduino pins not bent",
+          "POWER TROUBLESHOOT: Try external power supply (7-12V barrel jack), check LED indicators stable, measure voltage at 5V and 3.3V pins",
+          "ENVIRONMENT: Move away from motors or fluorescent lights, use shorter USB cables (<3 ft), try another laptop/computer"
+        ]
+      },
+      {
+        "id": "ard_case_5",
+        "title": "Code Not Uploading at All",
+        "symptoms": [
+          "No response when uploading",
+          "Upload button does nothing"
+        ],
+        "causes": [
+          "Multiple IDEs open",
+          "Wrong board/port",
+          "Faulty cable",
+          "External circuit drawing too much power"
+        ],
+        "solutions": [
+          "QUICK RESET: Unplug Arduino and plug back in, try another USB port",
+          "IDE SETTINGS: Tools → Board → Select Arduino Uno, Tools → Port → Select correct port, close any other Arduino IDE windows",
+          "CABLE/DRIVER: Try another cable, reinstall CH340 driver if using clone board",
+          "EXTERNAL CIRCUITS: Disconnect power-hungry components (servo, motor, sensor on 5V), try uploading with only Arduino connected"
+        ]
+      },
+      {
+        "id": "ard_case_6",
+        "title": "Serial Monitor Issues",
+        "symptoms": [
+          "No output in Serial Monitor",
+          "Garbled text",
+          "Serial not responding"
+        ],
+        "causes": [
+          "Incorrect baud rate",
+          "Missing Serial.begin()",
+          "Pins 0/1 in use"
+        ],
+        "solutions": [
+          "BAUD RATE: Match Serial Monitor baud rate with code (e.g., Serial.begin(9600)), try common values: 9600, 57600, 115200",
+          "CODE CHECK: Ensure Serial.begin() is in setup(), add Serial.println(Test) in loop for testing",
+          "HARDWARE CHECK: Disconnect wires from pins 0 and 1 (reserved for USB), close other programs using Serial",
+          "MONITOR SETTINGS: Select correct COM port in Serial Monitor, try different line ending options (None, Newline)",
+          "ALTERNATIVE TEST: Upload Blink code to confirm board works"
+        ]
+      },
+      {
+        "id": "ard_case_7",
+        "title": "Programming / Code Errors",
+        "symptoms": [
+          "Compilation errors",
+          "Sketch too big",
+          "Library conflicts"
+        ],
+        "causes": [
+          "Syntax mistakes",
+          "Library conflicts",
+          "Memory overflow"
+        ],
+        "solutions": [
+          "COMPILATION: Check for missing semicolons, brackets, or quotes, verify variable declarations and function syntax",
+          "LIBRARY MANAGEMENT: Tools → Manage Libraries → Install required ones, remove duplicate/conflicting library versions",
+          "MEMORY: Keep code <32KB (Uno limit), store large data in PROGMEM",
+          "LOGIC DEBUG: Add Serial.print() messages, test small sections independently, simplify into smaller functions",
+          "CODE VERIFICATION: Try example codes from File → Examples, test on fresh Arduino IDE if needed"
+        ]
+      },
+      {
+        "id": "ard_case_8",
+        "title": "Servo Motor Problems",
+        "symptoms": [
+          "Servo not moving",
+          "Jittery movement",
+          "Servo heating up"
+        ],
+        "causes": [
+          "Wrong wiring",
+          "Insufficient power",
+          "Wrong PWM pin",
+          "Faulty servo"
+        ],
+        "solutions": [
+          "POWER CHECK: Servos need more current (500mA-1A), use external 5V supply for servo, connect servo ground to Arduino ground",
+          "WIRING VERIFY: Red → 5V (external power), Brown/Black → GND, Orange/Yellow → Signal pin",
+          "CODE TEST: Use basic Servo library test code with attach() and write() commands",
+          "PWM PINS: Use PWM-capable pins: 3, 5, 6, 9, 10, 11",
+          "SERVO HEATING: Check wiring (signal not connected to 5V), disconnect immediately if overheating"
+        ]
+      },
+      {
+        "id": "ard_case_9",
+        "title": "Component Heating Issues",
+        "symptoms": [
+          "Components getting hot",
+          "Smoke or burning smell"
+        ],
+        "causes": [
+          "Wrong wiring",
+          "Overvoltage",
+          "Short circuit"
+        ],
+        "solutions": [
+          "IMMEDIATE ACTION: Disconnect power at once",
+          "CHECK CONNECTIONS: Verify positive/negative pins, confirm correct resistor values for LEDs",
+          "COMPONENT LIMITS: IR receiver and sensors run on 3.3-5V, never connect directly to higher voltage",
+          "REPLACE: If still heating after correct wiring, component may be damaged"
+        ]
+      },
+      {
+        "id": "ard_case_10",
+        "title": "IR Remote & Receiver Issues",
+        "symptoms": [
+          "Remote not detected",
+          "Wrong codes received",
+          "No response from receiver"
+        ],
+        "causes": [
+          "Wrong library",
+          "Incorrect wiring",
+          "Different receiver type"
+        ],
+        "solutions": [
+          "CODE CHECK: Ensure correct library installed (IRremote), add Serial.println(results.value) for debugging",
+          "WIRING VERIFY: Confirm receiver pinout (varies by model), typical: OUT → digital pin, VCC → 5V, GND → GND",
+          "TESTING: Try with simple IR test code, test with different remote if available"
+        ]
+      },
+      {
+        "id": "ard_case_11",
+        "title": "Tilt Sensor Issues",
+        "symptoms": [
+          "Sensor not responding",
+          "Always same value"
+        ],
+        "causes": [
+          "Wrong wiring",
+          "Missing code logic"
+        ],
+        "solutions": [
+          "CODE CHECK: Confirm correct pin used in digitalRead(), add Serial.println() to see sensor values",
+          "CONNECTION CHECK: One pin → digital input, other pin → GND, use internal pull-up: pinMode(pin, INPUT_PULLUP)"
+        ]
+      }
+    ]
+  },
+  "raspberry_pi_pico": {
+    "general_guidelines": [
+      "Use GPIO pin numbers (0-28), not physical pin numbers",
+      "GPIO pins output 3.3V (not 5V)",
+      "Maximum 12mA per pin, 50mA total",
+      "Always enter bootloader mode (hold BOOTSEL) when connecting"
+    ],
+    "cases": [
+      {
+        "id": "pico_case_1",
+        "title": "Board Not Detected",
+        "symptoms": [
+          "Pico not recognized by PC",
+          "No drive appears",
+          "Device not found"
+        ],
+        "causes": [
+          "Driver issues",
+          "Cable problems",
+          "Bootloader mode not entered properly"
+        ],
+        "solutions": [
+          "BOOTLOADER MODE: Hold BOOTSEL button while connecting USB, RPI-RP2 drive should appear, release button after connection",
+          "CABLE TEST: Use data-capable USB cable (not power-only), try different USB ports (avoid hubs), test cable with other devices",
+          "DRIVER INSTALL: Windows - Install Raspberry Pi Pico drivers, check Device Manager for RP2 Boot device, update Windows if drivers missing",
+          "ALTERNATIVE: Try different computer/laptop, use USB 2.0 ports instead of 3.0, check for loose micro-USB connection",
+          "HARDWARE RESET: Disconnect power completely, press and release RESET button, retry bootloader sequence"
+        ]
+      },
+      {
+        "id": "pico_case_2",
+        "title": "Upload Failure",
+        "symptoms": [
+          "Code compilation fails",
+          "Upload errors",
+          "Board not selected warnings"
+        ],
+        "causes": [
+          "Wrong board configuration",
+          "IDE issues",
+          "Code errors",
+          "Memory problems"
+        ],
+        "solutions": [
+          "BOARD CONFIG: Tools → Board → Raspberry Pi Pico/RP2040, verify correct board variant (Pico, Pico W, etc.), check Tools → Port for correct COM port",
+          "IDE SETUP: Install latest Arduino IDE or Thonny, add RP2040 board package from GitHub, restart IDE after installation",
+          "CODE TROUBLESHOOT: Test with simple blink example, check for syntax errors and missing libraries, verify pin definitions (use GPIO numbers)",
+          "MEMORY: Ensure code fits in 2MB flash memory, check for stack overflow in recursive functions, optimize large arrays or data structures",
+          "UPLOAD PROCESS: Enter bootloader mode before each upload, wait for RPI-RP2 drive to appear, try drag-and-drop .uf2 file method"
+        ]
+      },
+      {
+        "id": "pico_case_3",
+        "title": "No GPIO Output",
+        "symptoms": [
+          "LEDs don't light",
+          "Motors don't respond",
+          "Sensors don't work"
+        ],
+        "causes": [
+          "Wrong pin definitions",
+          "Insufficient current",
+          "Voltage issues",
+          "Code logic errors"
+        ],
+        "solutions": [
+          "PIN VERIFICATION: Use GPIO pin numbers (0-28), not physical pin numbers, check pinout diagram for GP0-GP28 valid GPIO pins, avoid pins used for flash memory (GPIO16-19 on some boards)",
+          "BASIC LED TEST: Test with simple LED blink code on known working pin",
+          "VOLTAGE/CURRENT: GPIO pins output 3.3V (not 5V), maximum 12mA per pin and 50mA total, use appropriate resistors for LEDs (220Ω recommended)",
+          "CIRCUIT CHECK: Check wiring with multimeter, verify ground connections, test continuity of breadboard connections",
+          "CODE LOGIC: Add Serial.println() for debugging, verify pinMode() and pin assignments, check for conflicting pin usage"
+        ]
+      },
+      {
+        "id": "pico_case_4",
+        "title": "IR Sensor Malfunction",
+        "symptoms": [
+          "IR sensor not giving correct or expected values",
+          "Inconsistent readings"
+        ],
+        "causes": [
+          "Direct sunlight interference - sunlight contains infrared rays",
+          "Incorrect sensitivity settings",
+          "Faulty or confusing code behavior",
+          "Hardware malfunction"
+        ],
+        "solutions": [
+          "AVOID SUNLIGHT: Place IR sensor away from sunlight or strong artificial IR sources",
+          "ADJUST SENSITIVITY: Use potentiometer on IR sensor module to fine-tune sensitivity",
+          "TEST CODE: Upload test code to read sensor values and print on serial console, if output seems reversed try using INPUT_PULLUP command",
+          "HARDWARE TEST: Connect IR sensor output directly to LED (without code) to verify if sensor is working, if LED turns on/off properly sensor is functional and issue may be in code",
+          "CONTACT TEAM: Raise ticket and inform debugging team for further technical support"
+        ]
+      },
+      {
+        "id": "pico_case_5",
+        "title": "Seven Segment Display / LEDs Not Working",
+        "symptoms": [
+          "Specific segment not responding",
+          "Individual LED not working",
+          "Partial display functionality"
+        ],
+        "causes": [
+          "Wiring issues",
+          "Faulty pins",
+          "Defective component"
+        ],
+        "solutions": [
+          "CHECK PINS: Connect suspected pin directly (e.g., LED1 pin or Segment A pin) to 3.3V and verify if component functions (Do not connect to 5V), if component lights up issue may be in wiring or code",
+          "VERIFY CONNECTIONS: Ensure all jumper wires properly connected, double-check GP pins assigned in code match actual wiring",
+          "CROSS-CHECK: Try using different working pin to test same segment/LED, this helps confirm if issue is with component or pin",
+          "COMPONENT TEST: If segment/LED doesn't work after direct pin testing and wiring checks, component may be faulty",
+          "CONTACT TEAM: Raise ticket and inform debugging team for further technical support"
+        ]
+      }
+    ]
+  },
+  "support_team": {
+    "us_timezone": [
+      {
+        "name": "Onkar",
+        "specialization": "MB-T0/T1/T2/T3",
+        "email": "onkar.k@moonpreneur.com"
+      },
+      {
+        "name": "Urvish",
+        "specialization": "MB-T1/T2",
+        "email": "urvish.m@moonpreneur.com"
+      },
+      {
+        "name": "Pavan",
+        "specialization": "PP-T1/T2/T3",
+        "email": "pavan.k@moonpreneur.com"
+      }
+    ],
+    "uk_timezone": [
+      {
+        "name": "Ayush",
+        "specialization": "MB-T0/T1/T2",
+        "email": "ayush.n@moonpreneur.com"
+      },
+      {
+        "name": "Sai Praveen",
+        "specialization": "RO-T1/T2/T3",
+        "email": "praveen.b@moonpreneur.com"
+      }
+    ]
+  },
+  "ticket_process": {
+    "case_1_resolved_during_session": [
+      "Identify Hardware Issue → Notify QnA WhatsApp group immediately",
+      "Debugging Team Joins → Provides real-time support",
+      "Issue Resolution → Problem solved during session",
+      "Create Ticket → Draft ticket with session details and resolver info",
+      "Ticket Resolution → After ticket is generated, assigned member will close the ticket"
+    ],
+    "case_2_not_resolved_during_session": [
+      "Identify Hardware Issue → Notify QnA WhatsApp group",
+      "Post-Session Action → Generate detailed ticket after session",
+      "Ticket Assignment → Ticket automatically assigned to debugging team member",
+      "Team Response → Assigned member responds within 24 hours",
+      "Resolution Tracking → Ticket remains open until fully resolved",
+      "24-Hour Response: Assigned team member must respond within 24 hours",
+      "Detailed Steps: Provide comprehensive troubleshooting measures",
+      "Transparency: Updates visible to teacher for tracking",
+      "Resolution Confirmation: Ticket closed only when issue fully resolved (PGs will close ticket)",
+      "Replacement Option: If unresolvable, debugging team initiates replacement"
     ]
   }
 }
